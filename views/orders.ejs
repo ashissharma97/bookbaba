@@ -44,15 +44,15 @@
                                 <span class="glyphicon glyphicon-remove"></span>
                                 Withdraw Request
                             </button>
-                        <%}else if(order.status=='rejected' || order.status=='Payment Successfull' ||order.status=='Delivered'){%>
-                        <%}else{%>
-                            <form action="/payment/order/<%=order._id%>" method="POST">
+                        <%}else if(order.status=='approved'){%>
+                        <form action="/payment/order/<%=order._id%>" method="POST">
                             <input id="inputhide" name="price" type="text" value="<%=order.price%>">
                             <button type="submit" id="make_payment" class="btn btn-success text-center">
                                 <span class="glyphicon glyphicon-remove"></span>
                                 Pay
                             </button>
                             </form>
+                        <%}else{%>
                         <%}%>
                         </td>
                     </tr>
