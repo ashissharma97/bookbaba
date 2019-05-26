@@ -66,6 +66,10 @@ $('#order').click(function(){
   $(this).html('Ordering...')
 })
 
+$('#postSubmit').click(function(){
+  $(this).html('Submitting...')
+})
+
 
 $('#ifsc').keyup(function () {
   fetch(`https://ifsc.razorpay.com/${$(ifsc).val()}`)
