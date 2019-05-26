@@ -1,0 +1,54 @@
+<div class="container">
+    <% include ./partials/messages %>
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Action</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <% ads.forEach(function(ad){ %>
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <a class="thumbnail pull-left" href="#"> <img class="media-object" src="../book/image/<%= ad.image %>" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a href="#"><%= ad.book_name %></a></h4>
+                                <h5 class="media-heading"> by <a href="#"><%= ad.postedUser %></a></h5>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>&#x20B9 <%= ad.price %></strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <a href="/order/<%=ad._id%>">
+                        <button type="button" class="btn btn-info">
+                            <span class="glyphicon glyphicon-remove"></span> Request Order
+                        </button>
+                        </a>
+                        <a href="/book/cart/delete/<%=ad._id%>">
+                        <button type="button" class="btn btn-danger">
+                            <span class="glyphicon glyphicon-remove"></span> Remove
+                        </button>
+                        </a>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <tr>
+                        <td>
+                        
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<style>
+table{
+   margin: 0 auto
+}
+</style>

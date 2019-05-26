@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Book</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Action</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                      <% payments.forEach(function(payment){ %>
+                        <td class="col-sm-8 col-md-6">
+                        <div class="media">
+                            <div class="media-body">
+                                <h4 class="media-heading"><%= payment.ads %></h4>
+                                <h5 class="media-heading"> by <%= payment.from %></h5>
+                            </div>
+                        </div></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>&#x20B9 <%= payment.paymentPrice %></strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <a href="/admin/payment/detail/<%=payment._id%>">
+                        <button type="button" class="btn btn-info">
+                            <span class="glyphicon glyphicon-remove"></span> Details
+                        </button></td>
+                        </a>
+                    </tr>
+                    <%})%>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>

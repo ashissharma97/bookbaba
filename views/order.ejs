@@ -1,0 +1,53 @@
+<div class="row mt-5">
+<div class="col-md-6 m-auto">
+<h1 class="mt-4 text-center">Order Request</h1>
+<% include ./partials/messages %>
+<form action="/order/<%=ads._id%>" method="POST">
+<div class="form-group">
+<div class="text-center">
+    <img class="img-thumbnail" src="/book/image/<%= ads.image %>" alt="Book image"><br>
+    </div>
+    <br>
+        <h5 class="card-title text-center"><%= ads.book_name %></h5>
+        <p class="card-text text-center">Quantity Avaible: <%= ads.quantity %></p>
+        <p class="card-text text-center">Original Price &#x20B9 <%= ads.price %></p>
+        <label for="Price" class="bmd-label-floating">Quantity</label>
+    <input type="text" name="quantity" class="form-control" id="quantity">
+    <label for="Price" class="bmd-label-floating">Price for Order</label>
+    <input type="text" name="price" value="<%=price%>" class="form-control" id="price">
+    <small id="caution" class="invalid-feedback">
+        <span class="bmd-help">Price is too Less</span>
+    </small>
+    <small id="caution2" class="invalid-feedback">
+        <span class="bmd-help">Price is too High</span>
+    </small>
+    <br>
+    <label for="deliveryAddress" class="bmd-label-floating">Delivery Address</label>
+    <textarea name="deliveryAddress" class="form-control" id="deliveryAddress" rows="3"></textarea>
+  </div>
+  <div class="text-center">
+  <button type="submit" id ="order" class="btn btn-primary btn-raised">Submit</button>
+  </div>
+</form> 
+</div>
+</div>
+<script src="/public/js/jquery.min.js"></script>
+<script>
+$('#caution').hide();
+$('#caution2').hide();
+let basePrice = <%=ads.price%>-<%=ads.price%>/5;
+$('#price').keyup(function(){
+    if($('#price').val()<=<%=ads.price%>-<%=ads.price%>/5){
+        $('#caution').show()
+        $('#caution2').hide()
+    }
+    else if($('#price').val()><%=ads.price%>){
+        $('#caution').hide()
+        $('#caution2').show()
+    }
+    else{
+        $('#caution').hide()
+        $('#caution2').hide()
+    }
+})
+</script>

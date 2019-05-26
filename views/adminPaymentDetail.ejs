@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                    <img class="media-object" src="/book/image/<%=ad.image %>" style="width: 72px; height: 72px;">
+                        <h4>
+                            Ad ID:<%=ad._id%></h4>
+                        <p>
+                            Account No:<%=ad.account_number%>
+                            <br />
+                            IFSC:<%=ad.ifsc%>
+                            <br />
+                            To:<%=ad.postedUser%>
+                            <br />
+                            Account Name:<%=ad.account_name%>
+                            <br />
+                            Payment Date and Time:<%=payment.paymentDate%>
+                            <br />
+                        <div class="btn-group">
+                        <form action="/admin/payment/dispatch/<%=payment._id%>" method="POST">
+                        <label for="Ref No" class="bmd-label-floating">Payment Referece No</label>
+                        <input type="text" name="reference" class="form-control">
+                            <button type="submit" class="btn btn-success">
+                                Done</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

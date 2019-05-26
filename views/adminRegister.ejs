@@ -1,0 +1,47 @@
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+  <h1 class="mt-4 text-center">Admin Registration</h1>
+  <% include ./partials/messages %>
+    <form action="/admin/register" method="POST">
+      <div class="form-group">
+    <label for="Email1" class="bmd-label-floating">Name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1">
+  </div>
+  <div class="form-group">
+    <label for="Email1" class="bmd-label-floating">Email address</label>
+    <input type="email" name="email" class="form-control">
+    <small>
+    <span class="bmd-help">We'll never share your email with anyone else.</span>
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="Mobile No" class="bmd-label-floating">Mobile No</label>
+    <input type="text" name="mobile_no" maxlength="10" pattern="\d*" class="form-control" id="mobileno">
+  </div>
+  <div class="form-group">
+    <label for="Password1" class="bmd-label-floating">Password</label>
+    <input type="password" name="password" class="form-control" id="password">
+    <small id="error-password-char" class="invalid-feedback">
+    <span class="bmd-help">Password Should be atleast 8 characters.</span>
+    </small>
+    <small id="valid-password-char" class="valid-feedback">
+    <span class="bmd-help">Great Password</span>
+    </small>
+  </div>
+  <div class="form-group">
+    <label for="Confirm Password" class="bmd-label-floating">Confirm Password</label>
+    <input type="password" name="confirm_password" class="form-control" id="confirm_password">
+    <small id="error-password" class="invalid-feedback">
+    <span class="bmd-help">Password and Confirm Password Does Not Match</span>
+    </small>
+    <small id="valid-password" class="valid-feedback">
+    <span class="bmd-help">Password Matched</span>
+    </small>
+    </div>
+      <div class="text-center">
+        <button type="submit" id="login" class="btn btn-primary btn-center">Submit</button>
+        <h6 class="mt-4 text-center">Admin Login<a href="/admin/login" class="text-dark"> Click Here </a></h6>
+      </div>
+    </form>
+  </div>
+</div>

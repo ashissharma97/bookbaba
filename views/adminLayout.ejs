@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title><%= title%></title>
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Rubik" rel="stylesheet">  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/simple-sidebar.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link rel="stylesheet" href="/public/css/pace.css">
+    <link rel="stylesheet" href="/public/css/Footer-white.css">
+    <link rel="icon" href="/public/images/favicon.gif" type="image/gif" sizes="16x16">
+  </head>
+  <body>
+  <div class="d-flex" id="wrapper">
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><a href="/"><img src="/public/images/favicon.gif" width="128" height="60"></a></div>
+      <div class="list-group list-group-flush">
+          <a href="/admin/dashboard" class="list-group-item list-group-item-action bg-light">Payments Update</a>
+          <a href="/admin/ordersdelivery" class="list-group-item list-group-item-action bg-light">Deliveries Update</a>
+          <a href="/admin/logout" class="list-group-item list-group-item-action bg-light">Logout</a>
+    </div>
+    </div>  
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle">Push Menu</button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <form action="/search" method="POST" class="form-inline text-right">
+              <input class="form-control form-rounded" name="value" id="search-key" type="text" placeholder="Search..." aria-label="Search">
+              <i id="search-btn" class="fa fa-search" aria-hidden="true"></i>
+          </ul>
+          </div>
+        </form>
+        <div class="loader">
+          <img src="/public/images/loader.gif" alt="Loading...">
+        </div>
+      </nav>
+      <%- body %>
+    </div>
+  </div>
+  </div>
+    <footer id="myFooter">
+        <div class="container">
+        <p class="footer-copyright">All Right Reserved © 2019 Copyright BOOK BABA</p>
+        </div>
+        <div class="footer-social">
+            <a href="#" class="social-icons"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="social-icons"><i class="fa fa-twitter"></i></a>
+        </div>
+    </footer>
+  <script src="/public/js/jquery.min.js"></script>
+  <script src="/public/js/bootstrap.bundle.min.js"></script>
+  <script src="/public/js/script.js"></script>    
+  <script src="/public/js/pace.min.js"></script>
+</body>
+</html>

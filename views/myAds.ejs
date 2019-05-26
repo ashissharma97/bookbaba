@@ -1,0 +1,69 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>My Books</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Active</th>
+                        <th class="text-center">Action</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <%if(ads.length == 0){%>
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">Nothing to Show</a></h4>
+                                </div>
+                            </div>
+                        </td>
+                        <%}else{%>
+                        <% ads.forEach(function(ad){ %>
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                        src="/book/image/<%= ad.image %>" style="width: 72px; height: 72px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><%= ad.book_name %></h4>
+                                    <p class="media-heading"> Posted On <%= ad.postedDate %></p>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>&#x20B9 <%= ad.price %></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>
+                        <%if(ad.active==true){%>
+                        True
+                        <%}else{%>
+                        False
+                        <%}%>
+                        </strong></td>
+                        <%if(ad.active==true){%>
+                        <td class="col-sm-1 col-md-1">
+                            <a href="/mybooks/delete/<%=ad._id%>">
+                            <button type="button" class="btn btn-danger">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Delete
+                            </button>
+                            </a>
+                        </td>
+                        <%}else{%>
+                        <td>
+                        </td>
+                        <%}%>
+                    </tr>
+                    <% }) %>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<style>
+table{
+   margin: 0 auto
+}
+</style>

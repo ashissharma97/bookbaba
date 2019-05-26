@@ -1,0 +1,21 @@
+<div class="row mt-5">
+  <div class="col-md-6 m-auto">
+  <h1 class="mt-4 text-center">Login</h1>
+  <% include ./partials/messages %>
+    <form action="/login" method="POST">
+      <div class="form-group">
+        <label for="Email1" class="bmd-label-floating">Email</label>
+        <input type="email" name="email" class="form-control" id="InputEmail1">
+      </div>
+      <div class="form-group">
+        <label for="Password1" class="bmd-label-floating">Password</label>
+        <input type="password" name="password" class="form-control" id="InputPassword">
+      </div>
+      <div class="text-center">
+        <button type="submit" id="login" class="btn btn-primary btn-center">Submit</button>
+        <h6 class="mt-4 text-center">Messed Up Password<a href="/forgotpassword" class="text-dark"> Click Here </a></h6>
+        <h6 class="mt-4 text-center">Not Registred Yet<a href="/registration" class="text-dark"> Click Here </a></h6>
+      </div>
+    </form>
+  </div>
+</div>

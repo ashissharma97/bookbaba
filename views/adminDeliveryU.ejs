@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            Ad ID:<%=order._id%></h4>
+                        <p>
+                            Current Status:<%=order.status%>
+                            <br />
+                        <div class="btn-group">
+                        <form action="/admin/delivery/update/<%=order._id%>" method="POST">
+                        <label for="Ref No" class="bmd-label-floating">Set Status</label>
+                        <input type="text" name="status" class="form-control">
+                            <button type="submit" class="btn btn-success">
+                                Save</button>
+                        </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

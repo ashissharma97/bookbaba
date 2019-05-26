@@ -1,0 +1,160 @@
+body{
+    font-family: 'Rubik', sans-serif;
+}
+.sidebar-heading{
+    font-family: 'Monoton', cursive;
+}
+.loader{
+    position: fixed;
+    z-index: 99;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loader > img{
+    width: 100px;
+}
+.loader.hidden{
+    animation: fadeOut 1s;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeOut{
+    100%{
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+.form-rounded {
+    border-radius: 1rem;
+    }
+a{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color: black;
+}
+i{
+    margin-right: 10px;
+}
+.glyphicon-bell {
+  font-size:1.5rem;
+}
+
+.notifications {
+ min-width:250px; 
+}
+
+.notifications-wrapper {
+   overflow:auto;
+    max-height:250px;
+  }
+  
+.menu-title {
+   color:#ff7788;
+   font-size:1.5rem;
+    display:inline-block;
+    }
+
+.glyphicon-circle-arrow-right {
+    margin-left:10px;     
+ }
+
+ 
+.notification-heading, .notification-footer  {
+ padding:2px 10px;
+     }
+    
+      
+.dropdown-menu.divider {
+margin:5px 0;          
+}
+
+.item-title {
+
+font-size:1.3rem;
+color:#000;
+  
+}
+
+.notifications a.content {
+text-decoration:none;
+background:#ccc;
+
+}
+
+.notification-item {
+padding:10px;
+margin:5px;
+background:#ccc;
+border-radius:4px;
+}
+
+.panel-order .row {
+	border-bottom: 1px solid #ccc;
+}
+.panel-order .row:last-child {
+	border: 0px;
+}
+.panel-order .row .col-md-1  {
+	text-align: center;
+	padding-top: 15px;
+}
+.panel-order .row .col-md-1 img {
+	width: 50px;
+	max-height: 50px;
+}
+.panel-order .row .row {
+	border-bottom: 0;
+}
+.panel-order .row .col-md-11 {
+	border-left: 1px solid #ccc;
+}
+.panel-order .row .row .col-md-12 {
+	padding-top: 7px;
+	padding-bottom: 7px; 
+}
+.panel-order .row .row .col-md-12:last-child {
+	font-size: 11px; 
+	color: #555;  
+	background: #efefef;
+}
+.panel-order .btn-group {
+	margin: 0px;
+	padding: 0px;
+}
+.panel-order .panel-body {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+.panel-order .panel-deading {
+	margin-bottom: 0;
+}
+
+.badge {
+    padding-left: 9px;
+    padding-right: 9px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+  }
+  
+  .label-warning[href],
+  .badge-warning[href] {
+    background-color: #c67605;
+  }
+  #lblCartCount {
+      font-size: 10px;
+      background: #ff0000;
+      color: #fff;
+      padding: 0 5px;
+      vertical-align: top;
+      margin-left: -18px; 
+  }
+  

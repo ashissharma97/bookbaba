@@ -1,0 +1,39 @@
+    <div class="container">
+    <% include ./partials/messages %>
+        <div class="wrapper row">
+            <div class="preview col-md-6">
+                <div class="preview-pic tab-content">
+                  <div class="tab-pane active" id="pic-1"><img class="img-thumbnail" src="../book/image/<%= ad.image %>" /></div>
+                </div>
+            </div>
+            <br>
+            <div class="details col-md-6">
+                <h3 class="product-title"><%= ad.book_name %></h3>
+                <p class="product-description"><%= ad.description %> </p>
+                <h4 class="price">current price: <span>&#x20B9 <%=ad.price %> </span></h4>
+                <%if(name!=null){%>
+                <a href="/book/cart/<%=ad._id%>">
+                    <div class="action">
+                        <button class="add-to-cart btn btn-info" id="cart" type="button">Add to Cart</button>
+                    </div>
+                </a>
+                <%}%>
+                <br>
+                <h6>By <%= ad.postedUser %></h6>
+                <%if(name!=null){%>
+                <a href="/chat/<%= ad._id %>" class="btn btn-primary" id="chat">Chat</a>
+                <%}%>
+                <br>
+                <h4>Added On</h4>
+                <h6><%= ad.postedDate %></h6>
+                <%if(name!=null){%>
+                <a href="/order/<%=ad._id%>" class="btn btn-success" id="request">Request for Order</a>
+                <%}else{%>
+                <i><h5 class="text-primary">Please Login or Register for Buying</h5></i>
+                <%}%>
+            </div>
+        </div>
+    </div>
+<style>
+.container{padding:100px;}
+</style>

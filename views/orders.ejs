@@ -1,0 +1,71 @@
+<div class="container">
+<% include ./partials/messages %>
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Your Orders</th>
+                        <th class="text-center">Requested Price</th>
+                        <th class="text-center">Status</th>
+                        <th class="text-center">Action</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <%if(orders.length == 0){%>
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#">Nothing to Show</a></h4>
+                                </div>
+                            </div>
+                        </td>
+                        <%}else{%>
+                        <%orders.forEach(function(order){%>
+                         <% var ads = order.ad %>
+                        <%ads.forEach(function(ad){%>
+                        <td class="col-sm-8 col-md-6">
+                            <div class="media">
+                                <a class="thumbnail pull-left" href="#"> <img class="media-object"
+                                        src="/book/image/<%= ad.image %>" style="width: 72px; height: 72px;"> </a>
+                                <div class="media-body">
+                                    <h4 class="media-heading"><a href="#"><%= ad.book_name %></a></h4>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong name="price2">&#x20B9 <%= order.price %></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong><%= order.status %></strong></td>
+                        <td class="col-sm-1 col-md-1">
+                        <%if(order.status=='pending'){%>
+                        <a href="/order/withdrawrequest/<%=order._id%>">
+                            <button type="button" class="btn btn-danger text-center">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Withdraw Request
+                            </button>
+                        <%}else if(order.status=='rejected' || order.status=='Payment Successfull' ||order.status=='Delivered'){%>
+                        <%}else{%>
+                            <form action="/payment/order/<%=order._id%>" method="POST">
+                            <input id="inputhide" name="price" type="text" value="<%=order.price%>">
+                            <button type="submit" id="make_payment" class="btn btn-success text-center">
+                                <span class="glyphicon glyphicon-remove"></span>
+                                Pay
+                            </button>
+                            </form>
+                        <%}%>
+                        </td>
+                    </tr>
+                    <% }) %>
+                    <% }) %>
+                    <%}%>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<style>
+table{
+   margin: 0 auto
+}
+</style>

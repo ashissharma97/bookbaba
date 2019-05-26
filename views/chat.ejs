@@ -1,0 +1,150 @@
+<link rel="stylesheet" href="/public/css/chat.css">
+<div class="messaging">
+    <div class="inbox_msg">
+        <div class="inbox_people">
+            <div class="headind_srch">
+                <div class="recent_heading">
+                    <h4>Recent Chats</h4>
+                </div>
+            </div>
+            <div class="inbox_chat">
+            <%if(ads){%>
+            <% ads.forEach(function(ad){ %>
+                <%if(ad != null){%>
+                <a href="/chat/<%= ad._id%>">
+                    <div class="chat_list">
+                        <div class="chat_people">
+                            <div class="chat_img"> <img src="/book/image/<%= ad.image %>">
+                            </div>
+                            <div class="chat_ib">
+                                <h5>
+                                <%=ad.book_name %>
+                                </h5>
+                            </div>
+                            <input type="hidden" class="u" value="None" />
+                        </div>
+                    </div>
+                </a>
+                <%}%>
+            <% }) %>
+            <%}else{%>
+                <div class="chat_list">
+                     <div class="chat_people">
+                        <div class="chat_img"></div>
+                            <div class="chat_ib">
+                                <h5>
+                                No Chats Available
+                                </h5>
+                            </div>
+                            <input type="hidden" class="u" value="None" />
+                        </div>
+                    </div>
+            <%}%>
+            </div>
+        </div>
+        <div class="mesgs">
+            <div class="msg_history">
+            <span id="to"><%= talkingTo%></span><span id="from"><%= email%></span>
+            <br>
+            <%if(chats){%>
+            <% chats.forEach(function(chat){ %>
+                <% if(chat.from ==email){ %>
+                <div class="outgoing_msg">
+                    <div class="sent_msg">
+                        <p>
+                        <%= chat.message %>
+                        </p>
+                    </div>
+                </div>
+                <%}else{%>
+                <div class="incoming_msg">
+                    <div class="received_msg">
+                        <div class="received_withd_msg">
+                            <p> 
+                            <%=chat.message %>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <%}%>
+            <% }) %>
+            <%}else{%>
+            <div class="col-12 mb-3 pt-0 mt-0">
+                </div>
+            <%}%>
+            </div>
+                <%if(chats != null){%>
+                <div class="type_msg">
+                <span class="pencil_anim" style="display:none">Typing.....</span>
+                    <div class="input_msg_write">
+                        <input type="text" class="write_msg" id="input" placeholder="Type a message" style="border:0; outline: none;" />
+                        <button class="msg_send_btn" id="send" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/public/js/socket.io.js"></script>
+<script src="/public/js/jquery.min.js"></script>
+<script>
+    $("document").ready(function () {
+    var to =document.getElementById('to').innerHTML;
+    console.log(to)
+    $("#to").hide();
+    $("#from").hide();
+    var socket = io();
+    $("#send").click(function(e){
+        if($("#input").val()==''){
+            e.preventDefault();
+            alert('Please Enter Message');
+        }
+        else{
+            e.preventDefault();
+            socket.emit('input',{
+                to:$("#to").html(),
+				message:$("#input").val(),
+                from:$("#from").html(),
+            })
+            $("#input").val('')
+        }
+    })
+    $("#input").keydown(function(e){
+        if(event.which === 13 && event.shiftKey == false){
+            socket.emit('input',{
+                to:$("#to").html(),
+				message:$("#input").val(),
+                from:$("#from").html(),
+            })
+            $("#input").val('')
+        }
+    })
+    socket.on('output',function(datas){
+        datas.forEach(function(data){
+            $(".msg_history").append(
+                    `<div class="outgoing_msg">
+                    <div class="sent_msg">
+                        <p>${data.message}</p>
+                    </div>
+                </div>`
+        )
+        })
+    })
+    socket.on('rOutput',function(datas){
+        datas.forEach(function(data){
+            $(".msg_history").append(
+                    `<div class="received_msg">
+                        <div class="received_withd_msg">
+                            <p>${data.message}</p>
+                        </div>
+                    </div>`
+        )
+        })
+    })
+    })
+    $(".chat_list").on('click', function () {
+            $(".chat_list").removeClass("active_chat")
+            $(this).addClass("active_chat")
+        })
+</script>

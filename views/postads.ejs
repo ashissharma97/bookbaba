@@ -1,0 +1,110 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+    <h1 class="mt-4 text-center">Post An Ad</h1>
+    <% include ./partials/messages %>
+      <form action="/postads" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+          <label for="Email1" class="bmd-label-floating">Book Name</label>
+          <input type="text" name="book_name" class="form-control" id="book_name">
+        </div>
+        <div class="form-group">
+          <label class="my-1 mr-2" for="Category">Category</label>
+              <select class="custom-select my-1 mr-sm-2" name="category"id="category">
+              <option selected>Choose...</option>
+              <option value="Action & Adventure">Action & Adventure</option>
+              <option value="Arts, Film & Photography">Arts, Film & Photography</option>
+              <option value="Biographies, Diaries & True">Biographies, Diaries & True </option>
+              <option value="Accounts">Accounts</option>
+              <option value="Business & Economics">Business & Economics</option>
+              <option value="Children's & Young Adult">Children's & Young Adult</option>
+              <option value="Comics & Mangas">Comics & Manags</option>
+              <option value="Computing,Internet & Digital">Computing,Internet & Digital</option>
+              <option value="Media">Media</option>
+              <option value="Crafts,Home & Lifestyle">Crafts,Home & Lifestyle</option>
+              <option value="Crime,Thriller & Mystery">Crime,Thriller & Mystery</option>
+              <option value="Exam preparation">Exam preparation</option>
+              <option value="Fantasy.Horror & Science Fiction">Fantasy.Horror & Science Fiction</option>
+              <option value="Health,Family & Personal">Health,Family & Personal</option>
+              <option value="Development">Development</option>
+              <option value="Historical Fiction">Historical Fiction</option>
+              <option value="History">History</option>
+              <option value="Humour">Humour</option>
+              <option value="Language,Linguistics & Writing">Language,Linguistics & Writing</option>
+              <option value="LAW">LAW</option>
+              <option value="Literature & Fiction">Literature & Fiction</option>
+              <option value="Maps & Atlases">Maps & Atlases</option>
+              <option value="Politics">Politics</option>
+              <option value="Reference">Reference</option>
+              <option value="Religion">Religion</option>
+              <option value="Romance">Romance</option>
+              <option value="School Bundles">School Bundles</option>
+              <option value="Science,Technology & Medicine">Science,Technology & Medicine</option>
+              <option value="Society & Social Science">Society & Social Science</option>
+              <option value="Sports">Sports</option>
+              <option value="Textbook & Study Guides">Textbook & Study Guides</option>
+              <option value="Travel">Travel</option>
+
+      </select>
+        </div>
+        <div class="form-group">
+          <label for="Author" class="bmd-label-floating">Author Name</label>
+          <input type="text" name="author_name" class="form-control" id="author_name">
+        </div>
+        <div class="form-group">
+          <label for="Published Date" class="bmd-label-floating">Published Year</label>
+          <input type="number" name="publishedYear" maxlength="4" class="form-control" id="publishedYear">
+        </div>
+        <div class="form-group">
+          <label for="Quantity" class="bmd-label-floating">Quantity</label>
+          <input type="number" name="quantity" class="form-control" id="quantity">
+        </div>
+        <div class="form-group">
+          <label for="Price" class="bmd-label-floating">Your Price</label>
+          <input type="number" name="price" class="form-control" id="price">
+        </div>
+        <div class="form-group">
+          <label for="Account Number" class="bmd-label-floating">Account Number</label>
+          <input type="number" name="account_number" class="form-control" id="account_number">
+          <small>
+            <span class="bmd-help">After Successful of Delivery Money will be credited to this Account.</span>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="Confirm Account Number" class="bmd-label-floating">Confirm Account Number</label>
+          <input type="number" name="confirm_account_number" class="form-control" id="confirm_account_number">
+        </div>
+        <div class="form-group">
+          <label for="bodyIfsc" class="bmd-label-floating">IFSC</label>
+          <input type="text" name="ifsc" class="form-control" id="ifsc">
+          <small>
+            <span id="ifscDetails" class="bmd-help"></span>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="name" class="bmd-label-floating">Account Name</label>
+          <input type="text" name="account_name" class="form-control" id="account_name">
+        </div>
+        <div class="form-group">
+            <label>Attach Book Image Here</label>
+            <input type="file" name="file" id="fileImage" class="form-control" accept="image/*">
+            <small>
+              <span class="bmd-help">We Only Accept Images.</span>
+              <span id="imageMessage" class="bmd-help">Please Attach Image Here.</span>
+            </small>
+        </div>
+        <div class="form-group">
+          <br>
+              <label for="Description">Description About Book</label>
+              <textarea name="description" class="form-control" id="description" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+          <br>
+              <label for="Description">Pickup Address for Book</label>
+              <textarea name="pickupAddress" class="form-control" id="pickupaddress" rows="3"></textarea>
+          </div>
+          <div class="text-center">
+              <button type="submit" id="postSubmit" class="btn btn-primary btn-center">Submit</button>
+          </div>
+      </form>
+    </div>
+  </div>
